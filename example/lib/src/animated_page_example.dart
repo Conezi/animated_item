@@ -37,6 +37,7 @@ class _AnimatedPageExampleState extends State<AnimatedPageExample> {
             return AnimatedPage(
                 controller: _pageController,
                 index: index,
+                effect: const RotateEffect(),
                 child: Container(
                   margin: const EdgeInsets.all(5.0),
                   width: width,
