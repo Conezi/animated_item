@@ -6,7 +6,9 @@ import '../effects/scale_effect.dart';
 class AnimatedItem extends StatefulWidget {
   final ScrollController controller;
   final int index;
+  /// Your list-view item widget
   final Widget child;
+  /// Animated item scroll effect
   final ScrollEffect effect;
   const AnimatedItem(
       {required this.controller,
