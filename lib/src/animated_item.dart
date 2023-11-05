@@ -1,7 +1,7 @@
-import 'package:animated_item/effects/scale_effect.dart';
 import 'package:flutter/material.dart';
 
 import '../effects/base_scroll_effect.dart';
+import '../effects/scale_effect.dart';
 
 class AnimatedItem extends StatefulWidget {
   final ScrollController controller;

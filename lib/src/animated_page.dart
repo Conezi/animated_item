@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
+import '../effects/base_scroll_effect.dart';
+import '../effects/translate_effect.dart';
+
 class AnimatedPage extends StatefulWidget {
   final PageController controller;
   final int index;
   final Widget child;
-  final Axis animationAxis;
+  final ScrollEffect effect;
   const AnimatedPage(
       {required this.controller,
         required this.index,
         required this.child,
-        this.animationAxis = Axis.vertical,
+        this.effect = const TranslateEffect(),
         super.key});
 
   @override
@@ -40,22 +43,10 @@ class _AnimatedPageState extends State<AnimatedPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return AnimatedBuilder(
       animation: widget.controller,
-      builder: (context, _) {
-        double delta = _pagePosition - widget.index;
-        double start = widget.animationAxis == Axis.horizontal
-            ? (size.width * 0.105) * delta.abs() * 10
-            : (size.height * 0.105) * delta.abs() * 10;
-
-        return Transform.translate(
-            offset: (widget.animationAxis == Axis.horizontal
-                ? Offset(start, 0)
-                : Offset(0, -start)),
-            child: widget.child
-        );
-      },
+      builder: (context, _) => widget.effect.buildEffect(
+          child: widget.child, index: widget.index, position: _pagePosition)
     );
   }
 }
