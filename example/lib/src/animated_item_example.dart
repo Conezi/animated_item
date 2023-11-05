@@ -1,4 +1,3 @@
-
 import 'package:animated_item/animated_item.dart';
 import 'package:flutter/material.dart';
 
@@ -42,6 +41,7 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                   return AnimatedItem(
                       controller: _scrollController,
                       index: index,
+                      effect: const TranslateEffect(animationAxis: Axis.vertical),
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
@@ -51,7 +51,6 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
               ),
             ),
           ],
-        )
-    );
+        ));
   }
 }
