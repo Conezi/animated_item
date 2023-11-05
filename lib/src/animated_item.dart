@@ -1,13 +1,18 @@
+import 'package:animated_item/effects/scale_effect.dart';
 import 'package:flutter/material.dart';
+
+import '../effects/base_scroll_effect.dart';
 
 class AnimatedItem extends StatefulWidget {
   final ScrollController controller;
   final int index;
   final Widget child;
+  final ScrollEffect effect;
   const AnimatedItem(
       {required this.controller,
       required this.index,
       required this.child,
+      this.effect = const ScaleEffect(),
       super.key});
 
   @override
@@ -49,16 +54,8 @@ class _AnimatedItemState extends State<AnimatedItem> {
     return AnimatedBuilder(
       key: _itemKey,
       animation: widget.controller,
-      builder: (context, _) {
-        double delta = (widget.index - _itemPosition).abs();
-        double verticalScale = 1.0 - delta * 0.2;
-        double horizontalScale = 1.0 - delta * 0.1;
-        return Transform(
-          transform: Matrix4.identity()..scale(horizontalScale, verticalScale),
-          alignment: Alignment.centerLeft,
-          child: widget.child,
-        );
-      },
+      builder: (context, _) => widget.effect.buildEffect(
+          child: widget.child, index: widget.index, position: _itemPosition),
     );
   }
 }
