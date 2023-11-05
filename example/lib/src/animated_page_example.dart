@@ -36,6 +36,7 @@ class _AnimatedPageExampleState extends State<AnimatedPageExample> {
           itemBuilder: (context, index) {
             return AnimatedPage(
                 controller: _pageController,
+                index: index,
                 child: Container(
                   margin: const EdgeInsets.all(5.0),
                   width: width,

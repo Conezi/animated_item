@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class AnimatedPage extends StatefulWidget {
   final PageController controller;
+  final int index;
   final Widget child;
   final Axis animationAxis;
   const AnimatedPage(
       {required this.controller,
+        required this.index,
         required this.child,
         this.animationAxis = Axis.vertical,
         super.key});
@@ -15,7 +17,6 @@ class AnimatedPage extends StatefulWidget {
 }
 
 class _AnimatedPageState extends State<AnimatedPage> {
-  int _currentPosition = 0;
   double _pagePosition = 0.0;
 
   @override
@@ -33,23 +34,26 @@ class _AnimatedPageState extends State<AnimatedPage> {
       setState(() {
         _pagePosition =
         num.parse(widget.controller.page!.toStringAsFixed(4)) as double;
-        _currentPosition = widget.controller.page!.floor();
       });
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return AnimatedBuilder(
       animation: widget.controller,
       builder: (context, _) {
-        double delta = (_currentPosition - _pagePosition).abs();
-        double verticalScale = 1.0 - delta * 0.2;
-        double horizontalScale = 1.0 - delta * 0.1;
-        return Transform(
-          transform: Matrix4.identity()..scale(horizontalScale, verticalScale),
-          alignment: Alignment.centerLeft,
-          child: widget.child,
+        double delta = _pagePosition - widget.index;
+        double start = widget.animationAxis == Axis.horizontal
+            ? (size.width * 0.105) * delta.abs() * 10
+            : (size.height * 0.105) * delta.abs() * 10;
+
+        return Transform.translate(
+            offset: (widget.animationAxis == Axis.horizontal
+                ? Offset(start, 0)
+                : Offset(0, -start)),
+            child: widget.child
         );
       },
     );

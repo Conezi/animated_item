@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AnimatedItem extends StatefulWidget {
-  final int index;
   final ScrollController controller;
+  final int index;
   final Widget child;
   const AnimatedItem(
       {required this.controller,
