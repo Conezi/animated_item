@@ -10,6 +10,7 @@ class AnimatedPage extends StatefulWidget {
   final Widget child;
   /// Animated page scroll effect
   final ScrollEffect effect;
+  /// Use this to build your PageView pages and apply [effect]
   const AnimatedPage(
       {required this.controller,
         required this.index,

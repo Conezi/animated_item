@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
                                   builder: (BuildContext context) =>
                                       const AnimatedItemExample())),
                           child: const Text('Animated Item')),
+                      const SizedBox(height: 15),
                       ElevatedButton(
                           onPressed: () => Navigator.of(context).push(
                               MaterialPageRoute(

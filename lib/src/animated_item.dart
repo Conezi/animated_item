@@ -10,6 +10,7 @@ class AnimatedItem extends StatefulWidget {
   final Widget child;
   /// Animated item scroll effect
   final ScrollEffect effect;
+  /// Use this to build your ListView items and apply [effect]
   const AnimatedItem(
       {required this.controller,
       required this.index,
