@@ -1,0 +1,22 @@
+PODS:
+  - animated_item (0.0.1):
+    - FlutterMacOS
+  - FlutterMacOS (1.0.0)
+
+DEPENDENCIES:
+  - animated_item (from `Flutter/ephemeral/.symlinks/plugins/animated_item/macos`)
+  - FlutterMacOS (from `Flutter/ephemeral`)
+
+EXTERNAL SOURCES:
+  animated_item:
+    :path: Flutter/ephemeral/.symlinks/plugins/animated_item/macos
+  FlutterMacOS:
+    :path: Flutter/ephemeral
+
+SPEC CHECKSUMS:
+  animated_item: b6f1c22852b69614023c5ab8839021b966c4ba00
+  FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
+
+PODFILE CHECKSUM: 236401fc2c932af29a9fcf0e97baeeb2d750d367
+
+COCOAPODS: 1.12.0
