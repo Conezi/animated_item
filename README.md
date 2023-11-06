@@ -77,10 +77,18 @@ PageView.builder(
 
 Here is a list of properties available to customize your effect:
 
-| Name                  | Type          | Description                                                       |
-|-----------------------|---------------|-------------------------------------------------------------------|
-| type             | AnimationType | determines start and end or the effect                            |
-| snap        | bool          | If active items snap back to original position when not scrolling |
+| Name            | Type              | Description                                                                                  |
+|-----------------|-------------------|----------------------------------------------------------------------------------------------|
+| type            | AnimationType     | Determines start and end or the effect.                                                      |
+| snap            | bool              | If active items snap back to original position when not scrolling.                           |
+| animationAxis   | Axis              | Animation axis for [TranslateEffect].                                                        | 
+| startOffset     | int               | The animation start offset for [TranslateEffect]. Use negative numbers to reverse translate. |
+| alignment       | AlignmentGeometry | The alignment of the origin, relative to the size of the child.                              |
+| verticalScale   | double            | Scale effect vertically.                                                                     |
+| horizontalScale | double            | Scale effect horizontally.                                                                   |
+| rotationAngle   | double            | Rotation angle for [RotateEffect].                                                           |
+| opacity         | double            | Opacity determines how faded the item becomes. Higher numbers results to more fading.        |
+
 
 ### Contributions
 ---  
