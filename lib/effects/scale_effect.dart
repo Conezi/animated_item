@@ -15,7 +15,7 @@ class ScaleEffect extends ScrollEffect {
   /// Only effective on the [AnimatedItem]
   final bool snap;
 
-  /// The alignment of the origin, relative to the size of the box.
+  /// The alignment of the origin, relative to the size of the child.
   final AlignmentGeometry alignment;
 
   /// Animation type

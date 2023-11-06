@@ -136,7 +136,7 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                   return AnimatedItem(
                       controller: _rotateController,
                       index: index,
-                      effect: const RotateEffect(),
+                      effect: const RotateEffect(rotationAngle: 5),
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
