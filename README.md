@@ -27,33 +27,43 @@ animated_item: ^<latest-version>
 `AnimatedItem` uses the ScrollController's scroll offset to animate the active item in a [ListView].
 
 ```dart
-AnimatedItem(
-  controller: _scrollController,
-  index: index,
-  effect: const ScaleEffect(),
-  child: Container(
-    margin: const EdgeInsets.all(5.0),
-    width: width,
-    decoration: BoxDecoration(
-      color: colors[index],
-      borderRadius: _borderRadius),
-  )
+ListView.builder(
+itemCount: colors.length,
+scrollDirection: Axis.horizontal,
+controller: _scaleController,
+padding: const EdgeInsets.symmetric(horizontal: 10.0),
+itemBuilder: (context, index) {
+return AnimatedItem(
+controller: _scaleController,
+index: index,
+effect: const ScaleEffect(),
+child: Container(
+margin: const EdgeInsets.all(5.0),
+width: width,
+decoration: BoxDecoration(
+color: colors[index], borderRadius: _borderRadius),
+));
+},
 )
 ``` 
 
 `AnimatedPage` uses the PageController's scroll offset to animate the active page in a [PageView].
 
 ```dart
-AnimatedPage(
-  controller: _pageController,
-  index: index,
-  effect: const RotateEffect(),
-  child: Container(
-    margin: const EdgeInsets.all(5.0),
-    width: width,
-    decoration: BoxDecoration(
-      color: colors[index],
-      borderRadius: _borderRadius),
-  )
+PageView.builder(
+controller: _scaleController,
+itemCount: colors.length,
+itemBuilder: (context, index) {
+return AnimatedPage(
+controller: _scaleController,
+index: index,
+effect: const ScaleEffect(),
+child: Container(
+margin: const EdgeInsets.all(5.0),
+width: width,
+decoration: BoxDecoration(
+color: colors[index], borderRadius: _borderRadius),
+));
+}, // Can be null
 )
 ```  
