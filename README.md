@@ -2,10 +2,14 @@
 
 #### A Flutter plugin that animates ListView and PageView item on scroll.
 
-### Preview
+### Previews
 ---  
 
+##### Animated item for [ListViews]
+
 ![](https://github.com/Conezi/animated_item/blob/main/demo/animated_item_preview.gif?raw=true)
+
+##### Animated page for [PageViews]
 
 ![](https://github.com/Conezi/animated_item/blob/main/demo/animated_page_preview.gif?raw=true)
 
