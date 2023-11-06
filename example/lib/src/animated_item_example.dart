@@ -25,6 +25,8 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
     Colors.purple
   ];
 
+  final _borderRadius = const BorderRadius.all(Radius.circular(8.0));
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -52,7 +54,8 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
-                        color: colors[index],
+                        decoration: BoxDecoration(
+                            color: colors[index], borderRadius: _borderRadius),
                       ));
                 },
               ),
@@ -76,7 +79,8 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
-                        color: colors[index],
+                        decoration: BoxDecoration(
+                            color: colors[index], borderRadius: _borderRadius),
                       ));
                 },
               ),
@@ -98,7 +102,8 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
-                        color: colors[index],
+                        decoration: BoxDecoration(
+                            color: colors[index], borderRadius: _borderRadius),
                       ));
                 },
               ),
@@ -119,7 +124,8 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
-                        color: colors[index],
+                        decoration: BoxDecoration(
+                            color: colors[index], borderRadius: _borderRadius),
                       ));
                 },
               ),
@@ -140,7 +146,8 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
-                        color: colors[index],
+                        decoration: BoxDecoration(
+                            color: colors[index], borderRadius: _borderRadius),
                       ));
                 },
               ),
