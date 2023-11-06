@@ -1,5 +1,9 @@
+// Copyright 2023 Conezi. All rights reserved.
+
 import 'package:animated_item/effects/base_scroll_effect.dart';
 import 'package:flutter/material.dart';
+
+import '../res/enums.dart';
 
 class TranslateEffect extends ScrollEffect {
   final int start;
@@ -10,10 +14,12 @@ class TranslateEffect extends ScrollEffect {
 
   /// Animation axis
   final Axis animationAxis;
+  final AnimationType type;
   const TranslateEffect(
       {this.start = 10,
       this.snap = true,
-      this.animationAxis = Axis.horizontal});
+      this.animationAxis = Axis.horizontal,
+      this.type = AnimationType.animateInAndOut});
 
   @override
   Widget buildEffect(
@@ -22,18 +28,22 @@ class TranslateEffect extends ScrollEffect {
       required double position,
       double? itemWidth,
       double? itemHeight,
-      bool? isScrolling}) {
+      bool? isScrolling,
+      required AnimationScrollDirection direction}) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        double delta = (index - position).abs();
+        final shouldSnap = snap && isScrolling == false;
+        double delta = index - position;
+
+        if (shouldSnap || !shouldAnimate(delta, type, direction)) {
+          return child;
+        }
+        delta = delta.abs();
         double start = animationAxis == Axis.horizontal
             ? ((itemWidth ?? constraints.maxWidth) * 0.105) * delta * this.start
             : ((itemHeight ?? constraints.maxHeight) * 0.105) *
                 delta *
                 this.start;
-        if (snap && isScrolling == false) {
-          return child;
-        }
         return Transform.translate(
             offset: (animationAxis == Axis.horizontal
                 ? Offset(start, 0)

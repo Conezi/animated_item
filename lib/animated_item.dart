@@ -1,3 +1,5 @@
+// Copyright 2023 Conezi. All rights reserved.
+
 export 'src/animated_item.dart';
 export 'src/animated_page.dart';
 export 'effects/scale_effect.dart';

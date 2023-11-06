@@ -1,7 +1,11 @@
+// Copyright 2023 Conezi. All rights reserved.
+
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../effects/base_scroll_effect.dart';
 import '../effects/scale_effect.dart';
+import '../res/enums.dart';
 
 class AnimatedItem extends StatefulWidget {
   final ScrollController controller;
@@ -66,6 +70,14 @@ class _AnimatedItemState extends State<AnimatedItem> {
     }
   }
 
+  AnimationScrollDirection get _scrollDirection {
+    if (widget.controller.position.userScrollDirection ==
+        ScrollDirection.reverse) {
+      return AnimationScrollDirection.forward;
+    }
+    return AnimationScrollDirection.reverse;
+  }
+
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -77,7 +89,8 @@ class _AnimatedItemState extends State<AnimatedItem> {
           position: _itemPosition,
           itemWidth: _itemWidth,
           itemHeight: _itemHeight,
-          isScrolling: widget.controller.position.isScrollingNotifier.value),
+          isScrolling: widget.controller.position.isScrollingNotifier.value,
+          direction: _scrollDirection),
     );
   }
 }

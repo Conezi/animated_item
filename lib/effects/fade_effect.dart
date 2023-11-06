@@ -1,5 +1,9 @@
+// Copyright 2023 Conezi. All rights reserved.
+
 import 'package:animated_item/effects/base_scroll_effect.dart';
 import 'package:flutter/material.dart';
+
+import '../res/enums.dart';
 
 class FadeEffect extends ScrollEffect {
   /// Opacity determines how faded the item becomes.
@@ -9,7 +13,11 @@ class FadeEffect extends ScrollEffect {
   /// Snap back to original opacity when not scrolling
   /// Only effective on the [AnimatedItem]
   final bool snap;
-  const FadeEffect({this.opacity = 0.5, this.snap = true})
+  final AnimationType type;
+  const FadeEffect(
+      {this.opacity = 0.5,
+      this.snap = true,
+      this.type = AnimationType.animateInAndOut})
       : assert(opacity >= 0.0);
 
   @override
@@ -19,12 +27,16 @@ class FadeEffect extends ScrollEffect {
       required double position,
       double? itemWidth,
       double? itemHeight,
-      bool? isScrolling}) {
-    double delta = (index - position).abs();
-    double opacity = 1.0 - delta * this.opacity;
-    if (snap && isScrolling == false) {
+      bool? isScrolling,
+      required AnimationScrollDirection direction}) {
+    final shouldSnap = snap && isScrolling == false;
+    double delta = index - position;
+
+    if (shouldSnap || !shouldAnimate(delta, type, direction)) {
       return child;
     }
+    delta = delta.abs();
+    double opacity = 1.0 - delta * this.opacity;
     return Opacity(
       opacity: opacity < 0
           ? 0

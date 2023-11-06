@@ -1,5 +1,9 @@
+// Copyright 2023 Conezi. All rights reserved.
+
 import 'package:animated_item/effects/base_scroll_effect.dart';
 import 'package:flutter/material.dart';
+
+import '../res/enums.dart';
 
 class RotateEffect extends ScrollEffect {
   /// Adjust rotation angle as needed
@@ -8,7 +12,11 @@ class RotateEffect extends ScrollEffect {
   /// Snap back to original angle when not scrolling
   /// Only effective on the [AnimatedItem]
   final bool snap;
-  const RotateEffect({this.rotationAngle = 10, this.snap = true})
+  final AnimationType type;
+  const RotateEffect(
+      {this.rotationAngle = 10,
+      this.snap = true,
+      this.type = AnimationType.animateIn})
       : assert(rotationAngle >= 0.0);
 
   @override
@@ -18,12 +26,16 @@ class RotateEffect extends ScrollEffect {
       required double position,
       double? itemWidth,
       double? itemHeight,
-      bool? isScrolling}) {
-    double delta = (index - position).abs();
-    double rotationAngle = (0.0 - delta) * this.rotationAngle;
-    if (snap && isScrolling == false) {
+      bool? isScrolling,
+      required AnimationScrollDirection direction}) {
+    final shouldSnap = snap && isScrolling == false;
+    double delta = index - position;
+
+    if (shouldSnap || !shouldAnimate(delta, type, direction)) {
       return child;
     }
+    delta = delta.abs();
+    double rotationAngle = (0.0 - delta) * this.rotationAngle;
     return Transform.rotate(
       angle: delta <= 1 ? rotationAngle : 0,
       child: child,

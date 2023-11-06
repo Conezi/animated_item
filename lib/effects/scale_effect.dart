@@ -1,4 +1,7 @@
+// Copyright 2023 Conezi. All rights reserved.
+
 import 'package:animated_item/effects/base_scroll_effect.dart';
+import 'package:animated_item/res/enums.dart';
 import 'package:flutter/material.dart';
 
 class ScaleEffect extends ScrollEffect {
@@ -9,11 +12,13 @@ class ScaleEffect extends ScrollEffect {
   /// Only effective on the [AnimatedItem]
   final bool snap;
   final AlignmentGeometry alignment;
+  final AnimationType type;
   const ScaleEffect(
       {this.verticalScale = 0.2,
       this.horizontalScale = 0.2,
       this.snap = true,
-      this.alignment = Alignment.center})
+      this.alignment = Alignment.center,
+      this.type = AnimationType.animateInAndOut})
       : assert(verticalScale >= 0.0),
         assert(horizontalScale >= 0.0);
 
@@ -24,17 +29,22 @@ class ScaleEffect extends ScrollEffect {
       required double position,
       double? itemWidth,
       double? itemHeight,
-      bool? isScrolling}) {
-    double delta = (index - position).abs();
-    double verticalScale = 1.0 - delta * this.verticalScale;
-    double horizontalScale = 1.0 - delta * this.horizontalScale;
-    if (snap && isScrolling == false) {
+      bool? isScrolling,
+      required AnimationScrollDirection direction}) {
+    final shouldSnap = snap && isScrolling == false;
+    double delta = index - position;
+
+    if (shouldSnap || !shouldAnimate(delta, type, direction)) {
       return child;
     }
+    delta = delta.abs();
+    double verticalScale = 1.0 - delta * this.verticalScale;
+    double horizontalScale = 1.0 - delta * this.horizontalScale;
     return Transform(
       transform: Matrix4.identity()..scale(horizontalScale, verticalScale),
       alignment: alignment,
       child: child,
     );
   }
+
 }
