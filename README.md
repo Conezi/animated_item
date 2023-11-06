@@ -72,6 +72,16 @@ PageView.builder(
 )
 ```  
 
+### Customization
+---  
+
+Here is a list of properties available to customize your effect:
+
+| Name                  | Type          | Description                                                       |
+|-----------------------|---------------|-------------------------------------------------------------------|
+| type             | AnimationType | determines start and end or the effect                            |
+| snap        | bool          | If active items snap back to original position when not scrolling |
+
 ### Contributions
 ---  
 
