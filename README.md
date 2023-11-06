@@ -79,7 +79,7 @@ Here is a list of properties available to customize your effect:
 | Name            | Type              | Description                                                                                  |
 |-----------------|-------------------|----------------------------------------------------------------------------------------------|
 | type            | AnimationType     | Determines start and end of effect.                                                          |
-| snap            | bool              | If active items snaps back to original position when not scrolling.                          |
+| snap            | bool              | If active snaps back to original position when not scrolling.                                |
 | animationAxis   | Axis              | Animation axis for [TranslateEffect].                                                        | 
 | startOffset     | int               | The animation start offset for [TranslateEffect]. Use negative numbers to reverse translate. |
 | alignment       | AlignmentGeometry | The alignment of the origin, relative to the size of the child.                              |
