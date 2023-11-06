@@ -8,7 +8,10 @@ import '../effects/scale_effect.dart';
 import '../res/enums.dart';
 
 class AnimatedItem extends StatefulWidget {
+  /// Scroll controller
   final ScrollController controller;
+
+  /// Index of the item
   final int index;
 
   /// Your list-view item widget

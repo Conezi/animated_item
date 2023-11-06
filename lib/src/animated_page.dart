@@ -8,7 +8,10 @@ import '../effects/scale_effect.dart';
 import '../res/enums.dart';
 
 class AnimatedPage extends StatefulWidget {
+  /// Page controller
   final PageController controller;
+
+  /// Index of the page
   final int index;
 
   /// Your page-view page widget
