@@ -13,6 +13,8 @@ class FadeEffect extends ScrollEffect {
   /// Snap back to original opacity when not scrolling
   /// Only effective on the [AnimatedItem]
   final bool snap;
+
+  /// Animation type
   final AnimationType type;
   const FadeEffect(
       {this.opacity = 0.8,

@@ -14,7 +14,7 @@ class AnimatedPage extends StatefulWidget {
   /// Index of the page
   final int index;
 
-  /// Your page-view page widget
+  /// Page-view page widget
   final Widget child;
 
   /// Animated page scroll effect

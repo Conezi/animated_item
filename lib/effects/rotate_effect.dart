@@ -12,11 +12,17 @@ class RotateEffect extends ScrollEffect {
   /// Snap back to original angle when not scrolling
   /// Only effective on the [AnimatedItem]
   final bool snap;
+
+  /// Animation type
   final AnimationType type;
+
+  /// The alignment of the origin, relative to the size of the box.
+  final AlignmentGeometry? alignment;
   const RotateEffect(
       {this.rotationAngle = 10,
       this.snap = true,
-      this.type = AnimationType.start})
+      this.type = AnimationType.start,
+      this.alignment})
       : assert(rotationAngle >= 0.0);
 
   @override
@@ -36,6 +42,7 @@ class RotateEffect extends ScrollEffect {
     double rotationAngle = (0.0 - delta) * this.rotationAngle;
     return Transform.rotate(
       angle: delta <= 1 ? rotationAngle : 0,
+      alignment: alignment,
       child: child,
     );
   }

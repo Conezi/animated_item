@@ -14,7 +14,7 @@ class AnimatedItem extends StatefulWidget {
   /// Index of the item
   final int index;
 
-  /// Your list-view item widget
+  /// List-view item widget
   final Widget child;
 
   /// Animated item scroll effect

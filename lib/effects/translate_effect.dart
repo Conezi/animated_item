@@ -16,6 +16,8 @@ class TranslateEffect extends ScrollEffect {
 
   /// Animation axis
   final Axis animationAxis;
+
+  /// Animation type
   final AnimationType type;
   const TranslateEffect(
       {this.startOffset = 10,

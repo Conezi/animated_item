@@ -5,13 +5,20 @@ import 'package:animated_item/res/enums.dart';
 import 'package:flutter/material.dart';
 
 class ScaleEffect extends ScrollEffect {
+  /// Scale effect vertically
   final double verticalScale;
+
+  /// Scale effect horizontally
   final double horizontalScale;
 
   /// Snap back to original size when not scrolling
   /// Only effective on the [AnimatedItem]
   final bool snap;
+
+  /// The alignment of the origin, relative to the size of the box.
   final AlignmentGeometry alignment;
+
+  /// Animation type
   final AnimationType type;
   const ScaleEffect(
       {this.verticalScale = 0.2,
