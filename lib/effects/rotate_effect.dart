@@ -5,7 +5,7 @@ class RotateEffect extends ScrollEffect {
   /// Adjust rotation angle as needed
   final double rotationAngle;
   const RotateEffect(
-      {this.rotationAngle = 20})
+      {this.rotationAngle = 10})
       : assert(rotationAngle >= 0.0);
 
   @override

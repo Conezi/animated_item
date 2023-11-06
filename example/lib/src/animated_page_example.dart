@@ -2,6 +2,8 @@
 import 'package:animated_item/animated_item.dart';
 import 'package:flutter/material.dart';
 
+import 'label.dart';
+
 class AnimatedPageExample extends StatefulWidget {
   const AnimatedPageExample({super.key});
 
@@ -10,7 +12,10 @@ class AnimatedPageExample extends StatefulWidget {
 }
 
 class _AnimatedPageExampleState extends State<AnimatedPageExample> {
-  final _pageController = PageController();
+  final _scaleController = PageController();
+  final _translateController = PageController();
+  final _fadeController = PageController();
+  final _rotateController = PageController();
   final colors = [
     Colors.pink,
     Colors.yellow,
@@ -28,22 +33,81 @@ class _AnimatedPageExampleState extends State<AnimatedPageExample> {
         appBar: AppBar(
           title: const Text('AnimatedPage example app'),
         ),
-        body: PageView.builder(
-          controller: _pageController,
-          itemCount: colors.length,
-          physics: const BouncingScrollPhysics(),
-          onPageChanged: (_) => setState(() {}),
-          itemBuilder: (context, index) {
-            return AnimatedPage(
-                controller: _pageController,
-                index: index,
-                effect: const RotateEffect(),
-                child: Container(
-                  margin: const EdgeInsets.all(5.0),
-                  width: width,
-                  color: colors[index],
-                ));
-          }, // Can be null
+        body: ListView(
+          children: [
+            const Label('Scale Effect'),
+            SizedBox(height: 200,
+              child: PageView.builder(
+                controller: _scaleController,
+                itemCount: colors.length,
+                itemBuilder: (context, index) {
+                  return AnimatedPage(
+                      controller: _scaleController,
+                      index: index,
+                      effect: const ScaleEffect(),
+                      child: Container(
+                        margin: const EdgeInsets.all(5.0),
+                        width: width,
+                        color: colors[index],
+                      ));
+                }, // Can be null
+              ),
+            ),
+            const Label('Translate Effect'),
+            SizedBox(height: 200,
+              child: PageView.builder(
+                controller: _translateController,
+                itemCount: colors.length,
+                itemBuilder: (context, index) {
+                  return AnimatedPage(
+                      controller: _translateController,
+                      index: index,
+                      effect: const TranslateEffect(animationAxis: Axis.vertical),
+                      child: Container(
+                        margin: const EdgeInsets.all(5.0),
+                        width: width,
+                        color: colors[index],
+                      ));
+                }, // Can be null
+              ),
+            ),
+            const Label('Fade Effect'),
+            SizedBox(height: 200,
+              child: PageView.builder(
+                controller: _fadeController,
+                itemCount: colors.length,
+                itemBuilder: (context, index) {
+                  return AnimatedPage(
+                      controller: _fadeController,
+                      index: index,
+                      effect: const FadeEffect(opacity: 1),
+                      child: Container(
+                        margin: const EdgeInsets.all(5.0),
+                        width: width,
+                        color: colors[index],
+                      ));
+                }, // Can be null
+              ),
+            ),
+            const Label('Rotate Effect'),
+            SizedBox(height: 200,
+              child: PageView.builder(
+                controller: _rotateController,
+                itemCount: colors.length,
+                itemBuilder: (context, index) {
+                  return AnimatedPage(
+                      controller: _rotateController,
+                      index: index,
+                      effect: const RotateEffect(),
+                      child: Container(
+                        margin: const EdgeInsets.all(5.0),
+                        width: width,
+                        color: colors[index],
+                      ));
+                }, // Can be null
+              ),
+            ),
+          ],
         )
     );
   }

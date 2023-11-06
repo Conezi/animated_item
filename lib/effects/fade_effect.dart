@@ -2,6 +2,8 @@ import 'package:animated_item/effects/base_scroll_effect.dart';
 import 'package:flutter/material.dart';
 
 class FadeEffect extends ScrollEffect {
+  /// Opacity determines how faded the item becomes.
+  /// Higher numbers results to more fading.
   final double opacity;
   const FadeEffect(
       {this.opacity = 0.5})
