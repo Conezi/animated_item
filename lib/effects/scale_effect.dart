@@ -12,7 +12,7 @@ class ScaleEffect extends ScrollEffect {
   const ScaleEffect(
       {this.verticalScale = 0.2,
       this.horizontalScale = 0.2,
-      this.snap = false,
+      this.snap = true,
       this.alignment = Alignment.center})
       : assert(verticalScale >= 0.0),
         assert(horizontalScale >= 0.0);

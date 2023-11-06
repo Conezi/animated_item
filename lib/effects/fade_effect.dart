@@ -9,7 +9,7 @@ class FadeEffect extends ScrollEffect {
   /// Snap back to original opacity when not scrolling
   /// Only effective on the [AnimatedItem]
   final bool snap;
-  const FadeEffect({this.opacity = 0.5, this.snap = false})
+  const FadeEffect({this.opacity = 0.5, this.snap = true})
       : assert(opacity >= 0.0);
 
   @override

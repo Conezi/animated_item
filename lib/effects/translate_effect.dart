@@ -12,7 +12,7 @@ class TranslateEffect extends ScrollEffect {
   final Axis animationAxis;
   const TranslateEffect(
       {this.start = 10,
-      this.snap = false,
+      this.snap = true,
       this.animationAxis = Axis.horizontal});
 
   @override
