@@ -71,3 +71,13 @@ PageView.builder(
   },
 )
 ```  
+
+### Contributions
+---  
+
+Contributions of any kind are more than welcome! Feel free to fork and improve `animated_item` in any way you want, make a pull request, or open an issue.
+
+### Support the Library
+---  
+
+You can support the library by liking it on pub, staring in on Github and reporting any bugs you encounter.
