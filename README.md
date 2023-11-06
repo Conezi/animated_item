@@ -16,7 +16,7 @@
 ### Installation
 ---  
 
-First, add `animated_item` as a dependency in your pubspec.yaml file.
+Add `animated_item` as a dependency in your pubspec.yaml file.
 
 ```yaml
 animated_item: ^<latest-version>
