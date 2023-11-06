@@ -35,12 +35,12 @@ class _AnimatedItemState extends State<AnimatedItem> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _getItemWidth();
+      _getItemSize();
     });
     widget.controller.addListener(_listener);
   }
 
-  void _getItemWidth() {
+  void _getItemSize() {
     if (_itemKey.currentContext != null) {
       RenderBox renderBox =
           _itemKey.currentContext!.findRenderObject() as RenderBox;
@@ -51,8 +51,11 @@ class _AnimatedItemState extends State<AnimatedItem> {
 
   _listener() {
     if (mounted) {
+      final itemExtent = widget.controller.position.axis == Axis.horizontal
+          ? _itemWidth
+          : _itemHeight;
       _itemPosition =
-          num.parse((widget.controller.offset / _itemWidth).toStringAsFixed(4))
+          num.parse((widget.controller.offset / itemExtent).toStringAsFixed(4))
               as double;
     }
   }
