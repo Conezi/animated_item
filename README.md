@@ -31,7 +31,6 @@ ListView.builder(
   itemCount: colors.length,
   scrollDirection: Axis.horizontal,
   controller: _scaleController,
-  padding: const EdgeInsets.symmetric(horizontal: 10.0),
   itemBuilder: (context, index) {
     return AnimatedItem(
       controller: _scaleController,
