@@ -11,7 +11,8 @@ class AnimatedItemExample extends StatefulWidget {
 
 class _AnimatedItemExampleState extends State<AnimatedItemExample> {
   final _scaleController = ScrollController();
-  final _translateController = ScrollController();
+  final _verticalTranslateController = ScrollController();
+  final _horizontalTranslateController = ScrollController();
   final _fadeController = ScrollController();
   final _rotateController = ScrollController();
   final colors = [
@@ -55,19 +56,42 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                 },
               ),
             ),
-            const Label('Translate Effect'),
+            const Label('Vertical Translate Effect'),
             SizedBox(
               height: 200,
               child: ListView.builder(
                 itemCount: colors.length,
                 scrollDirection: Axis.horizontal,
-                controller: _translateController,
+                controller: _verticalTranslateController,
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 itemBuilder: (context, index) {
                   return AnimatedItem(
-                      controller: _translateController,
+                      controller: _verticalTranslateController,
                       index: index,
-                      effect: const TranslateEffect(animationAxis: Axis.vertical, start: 5),
+                      effect: const TranslateEffect(
+                          animationAxis: Axis.vertical, start: 5),
+                      child: Container(
+                        margin: const EdgeInsets.all(5.0),
+                        width: width,
+                        color: colors[index],
+                      ));
+                },
+              ),
+            ),
+            const Label('Horizontal Translate Effect'),
+            SizedBox(
+              height: 200,
+              child: ListView.builder(
+                itemCount: colors.length,
+                scrollDirection: Axis.horizontal,
+                controller: _horizontalTranslateController,
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                itemBuilder: (context, index) {
+                  return AnimatedItem(
+                      controller: _horizontalTranslateController,
+                      index: index,
+                      effect: const TranslateEffect(
+                          animationAxis: Axis.horizontal, start: 5),
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
@@ -97,7 +121,7 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                 },
               ),
             ),
-            const Label('Fade Effect'),
+            const Label('Rotate Effect'),
             SizedBox(
               height: 200,
               child: ListView.builder(

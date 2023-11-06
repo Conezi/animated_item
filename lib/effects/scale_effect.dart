@@ -14,7 +14,11 @@ class ScaleEffect extends ScrollEffect {
 
   @override
   Widget buildEffect(
-      {required Widget child, required int index, required double position}) {
+      {required Widget child,
+      required int index,
+      required double position,
+      double? itemWidth,
+      double? itemHeight}) {
     double delta = (index - position).abs();
     double verticalScale = 1.0 - delta * this.verticalScale;
     double horizontalScale = 1.0 - delta * this.horizontalScale;

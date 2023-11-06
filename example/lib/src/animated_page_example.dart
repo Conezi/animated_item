@@ -1,4 +1,3 @@
-
 import 'package:animated_item/animated_item.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +12,8 @@ class AnimatedPageExample extends StatefulWidget {
 
 class _AnimatedPageExampleState extends State<AnimatedPageExample> {
   final _scaleController = PageController();
-  final _translateController = PageController();
+  final _verticalTranslateController = PageController();
+  final _horizontalTranslateController = PageController();
   final _fadeController = PageController();
   final _rotateController = PageController();
   final colors = [
@@ -36,7 +36,8 @@ class _AnimatedPageExampleState extends State<AnimatedPageExample> {
         body: ListView(
           children: [
             const Label('Scale Effect'),
-            SizedBox(height: 200,
+            SizedBox(
+              height: 200,
               child: PageView.builder(
                 controller: _scaleController,
                 itemCount: colors.length,
@@ -53,16 +54,38 @@ class _AnimatedPageExampleState extends State<AnimatedPageExample> {
                 }, // Can be null
               ),
             ),
-            const Label('Translate Effect'),
-            SizedBox(height: 200,
+            const Label('Vertical Translate Effect'),
+            SizedBox(
+              height: 200,
               child: PageView.builder(
-                controller: _translateController,
+                controller: _verticalTranslateController,
                 itemCount: colors.length,
                 itemBuilder: (context, index) {
                   return AnimatedPage(
-                      controller: _translateController,
+                      controller: _verticalTranslateController,
                       index: index,
-                      effect: const TranslateEffect(animationAxis: Axis.vertical),
+                      effect:
+                          const TranslateEffect(animationAxis: Axis.vertical),
+                      child: Container(
+                        margin: const EdgeInsets.all(5.0),
+                        width: width,
+                        color: colors[index],
+                      ));
+                }, // Can be null
+              ),
+            ),
+            const Label('Horizontal Translate Effect'),
+            SizedBox(
+              height: 200,
+              child: PageView.builder(
+                controller: _horizontalTranslateController,
+                itemCount: colors.length,
+                itemBuilder: (context, index) {
+                  return AnimatedPage(
+                      controller: _horizontalTranslateController,
+                      index: index,
+                      effect:
+                          const TranslateEffect(animationAxis: Axis.horizontal),
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
@@ -72,7 +95,8 @@ class _AnimatedPageExampleState extends State<AnimatedPageExample> {
               ),
             ),
             const Label('Fade Effect'),
-            SizedBox(height: 200,
+            SizedBox(
+              height: 200,
               child: PageView.builder(
                 controller: _fadeController,
                 itemCount: colors.length,
@@ -90,7 +114,8 @@ class _AnimatedPageExampleState extends State<AnimatedPageExample> {
               ),
             ),
             const Label('Rotate Effect'),
-            SizedBox(height: 200,
+            SizedBox(
+              height: 200,
               child: PageView.builder(
                 controller: _rotateController,
                 itemCount: colors.length,
@@ -108,7 +133,6 @@ class _AnimatedPageExampleState extends State<AnimatedPageExample> {
               ),
             ),
           ],
-        )
-    );
+        ));
   }
 }

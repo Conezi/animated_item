@@ -6,10 +6,13 @@ import '../effects/scale_effect.dart';
 class AnimatedItem extends StatefulWidget {
   final ScrollController controller;
   final int index;
+
   /// Your list-view item widget
   final Widget child;
+
   /// Animated item scroll effect
   final ScrollEffect effect;
+
   /// Use this to build your ListView items and apply [effect]
   const AnimatedItem(
       {required this.controller,
@@ -25,6 +28,7 @@ class AnimatedItem extends StatefulWidget {
 class _AnimatedItemState extends State<AnimatedItem> {
   final GlobalKey _itemKey = GlobalKey();
   double _itemWidth = 0;
+  double _itemHeight = 0;
   double _itemPosition = 0.0;
 
   @override
@@ -41,6 +45,7 @@ class _AnimatedItemState extends State<AnimatedItem> {
       RenderBox renderBox =
           _itemKey.currentContext!.findRenderObject() as RenderBox;
       _itemWidth = renderBox.size.width;
+      _itemHeight = renderBox.size.height;
     }
   }
 
@@ -58,7 +63,11 @@ class _AnimatedItemState extends State<AnimatedItem> {
       key: _itemKey,
       animation: widget.controller,
       builder: (context, _) => widget.effect.buildEffect(
-          child: widget.child, index: widget.index, position: _itemPosition),
+          child: widget.child,
+          index: widget.index,
+          position: _itemPosition,
+          itemWidth: _itemWidth,
+          itemHeight: _itemHeight),
     );
   }
 }

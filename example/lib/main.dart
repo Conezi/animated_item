@@ -17,29 +17,27 @@ class MyApp extends StatelessWidget {
             appBar: AppBar(
               title: const Text('AnimatedItem example app'),
             ),
-            body: Builder(
-              builder: (context) {
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(
-                          onPressed: () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      const AnimatedItemExample())),
-                          child: const Text('Animated Item')),
-                      const SizedBox(height: 15),
-                      ElevatedButton(
-                          onPressed: () => Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      const AnimatedPageExample())),
-                          child: const Text('Animated Page'))
-                    ],
-                  ),
-                );
-              }
-            )));
+            body: Builder(builder: (context) {
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                        onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const AnimatedItemExample())),
+                        child: const Text('Animated Item')),
+                    const SizedBox(height: 15),
+                    ElevatedButton(
+                        onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const AnimatedPageExample())),
+                        child: const Text('Animated Page'))
+                  ],
+                ),
+              );
+            })));
   }
 }

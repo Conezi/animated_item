@@ -1,8 +1,12 @@
-
 import 'package:flutter/material.dart';
 
-abstract class ScrollEffect{
+abstract class ScrollEffect {
   const ScrollEffect();
 
-  Widget buildEffect({required Widget child, required int index, required double position});
+  Widget buildEffect(
+      {required Widget child,
+      required int index,
+      required double position,
+      double? itemWidth,
+      double? itemHeight});
 }
