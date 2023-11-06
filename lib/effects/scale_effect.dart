@@ -31,10 +31,8 @@ class ScaleEffect extends ScrollEffect {
       double? itemHeight,
       bool? isScrolling,
       required AnimationScrollDirection direction}) {
-    final shouldSnap = snap && isScrolling == false;
     double delta = index - position;
-
-    if (shouldSnap || !shouldAnimate(delta, type, direction)) {
+    if (isStatic(delta, type, direction, snap, isScrolling)) {
       return child;
     }
     delta = delta.abs();
@@ -46,5 +44,4 @@ class ScaleEffect extends ScrollEffect {
       child: child,
     );
   }
-
 }

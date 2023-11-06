@@ -15,9 +15,7 @@ class FadeEffect extends ScrollEffect {
   final bool snap;
   final AnimationType type;
   const FadeEffect(
-      {this.opacity = 0.5,
-      this.snap = true,
-      this.type = AnimationType.always})
+      {this.opacity = 0.5, this.snap = true, this.type = AnimationType.always})
       : assert(opacity >= 0.0);
 
   @override
@@ -29,10 +27,8 @@ class FadeEffect extends ScrollEffect {
       double? itemHeight,
       bool? isScrolling,
       required AnimationScrollDirection direction}) {
-    final shouldSnap = snap && isScrolling == false;
     double delta = index - position;
-
-    if (shouldSnap || !shouldAnimate(delta, type, direction)) {
+    if (isStatic(delta, type, direction, snap, isScrolling)) {
       return child;
     }
     delta = delta.abs();

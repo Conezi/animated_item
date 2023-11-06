@@ -32,10 +32,8 @@ class TranslateEffect extends ScrollEffect {
       required AnimationScrollDirection direction}) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        final shouldSnap = snap && isScrolling == false;
         double delta = index - position;
-
-        if (shouldSnap || !shouldAnimate(delta, type, direction)) {
+        if (isStatic(delta, type, direction, snap, isScrolling)) {
           return child;
         }
         delta = delta.abs();

@@ -7,8 +7,10 @@ import '../res/enums.dart';
 abstract class ScrollEffect {
   const ScrollEffect();
 
-  bool shouldAnimate(
-      double delta, AnimationType type, AnimationScrollDirection direction) {
+  bool isStatic(
+      double delta, AnimationType type, AnimationScrollDirection direction, [bool snap = true, bool? isScrolling]) {
+    final shouldSnap = snap && isScrolling == false;
+
     final isForward = direction == AnimationScrollDirection.forward;
     final exiting = delta < 0;
     final onlyIn = isForward ? !exiting : exiting;
@@ -24,7 +26,7 @@ abstract class ScrollEffect {
                 : type == AnimationType.end
                     ? onlyEnd
                     : true;
-    return animate;
+    return shouldSnap || !animate;
   }
 
   Widget buildEffect(
