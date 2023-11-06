@@ -24,7 +24,7 @@ animated_item: ^<latest-version>
 
 ### Usage
 ---  
-`AnimatedItem` uses the ScrollController's scroll offset to animate the active item in a [ListView].
+`AnimatedItem` uses the ScrollController's scroll offset to animate child in a [ListView].
 
 ```dart
 ListView.builder(
@@ -49,7 +49,7 @@ ListView.builder(
 )
 ``` 
 
-`AnimatedPage` uses the PageController's scroll offset to animate the active page in a [PageView].
+`AnimatedPage` uses the PageController's scroll offset to animate child in a [PageView].
 
 ```dart
 PageView.builder(
