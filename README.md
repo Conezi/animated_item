@@ -28,28 +28,32 @@ animated_item: ^<latest-version>
 
 ```dart
 AnimatedItem(
-controller: _scrollController,
-index: index,
-effect: const ScaleEffect(),
-child: Container(
-margin: const EdgeInsets.all(5.0),
-width: width,
-decoration: BoxDecoration(
-color: colors[index], borderRadius: _borderRadius),
-))
+  controller: _scrollController,
+  index: index,
+  effect: const ScaleEffect(),
+  child: Container(
+    margin: const EdgeInsets.all(5.0),
+    width: width,
+    decoration: BoxDecoration(
+      color: colors[index],
+      borderRadius: _borderRadius),
+  )
+)
 ``` 
 
 `AnimatedPage` uses the PageController's scroll offset to animate the active page in a [PageView].
 
 ```dart
 AnimatedPage(
-controller: _pageController,
-index: index,
-effect: const RotateEffect(),
-child: Container(
-margin: const EdgeInsets.all(5.0),
-width: width,
-decoration: BoxDecoration(
-color: colors[index], borderRadius: _borderRadius),
-)) 
+  controller: _pageController,
+  index: index,
+  effect: const RotateEffect(),
+  child: Container(
+    margin: const EdgeInsets.all(5.0),
+    width: width,
+    decoration: BoxDecoration(
+      color: colors[index],
+      borderRadius: _borderRadius),
+  )
+)
 ```  
