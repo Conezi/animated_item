@@ -8,12 +8,22 @@ abstract class ScrollEffect {
   const ScrollEffect();
 
   bool shouldAnimate(
-      double delta, AnimationType type, AnimationScrollDirection direction){
+      double delta, AnimationType type, AnimationScrollDirection direction) {
     final isForward = direction == AnimationScrollDirection.forward;
     final exiting = delta < 0;
-    final onlyIn = isForward ?  !exiting : exiting;
-    final onlyOut = isForward ?  exiting : !exiting;
-    final animate = type == AnimationType.animateIn ? onlyIn : type == AnimationType.animateOut ? onlyOut : true;
+    final onlyIn = isForward ? !exiting : exiting;
+    final onlyOut = isForward ? exiting : !exiting;
+    final onlyStart = !exiting;
+    final onlyEnd = exiting;
+    final animate = type == AnimationType.animateIn
+        ? onlyIn
+        : type == AnimationType.animateOut
+            ? onlyOut
+            : type == AnimationType.start
+                ? onlyStart
+                : type == AnimationType.end
+                    ? onlyEnd
+                    : true;
     return animate;
   }
 

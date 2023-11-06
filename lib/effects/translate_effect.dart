@@ -19,7 +19,7 @@ class TranslateEffect extends ScrollEffect {
       {this.start = 10,
       this.snap = true,
       this.animationAxis = Axis.horizontal,
-      this.type = AnimationType.animateInAndOut});
+      this.type = AnimationType.always});
 
   @override
   Widget buildEffect(

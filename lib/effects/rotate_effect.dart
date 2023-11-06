@@ -16,7 +16,7 @@ class RotateEffect extends ScrollEffect {
   const RotateEffect(
       {this.rotationAngle = 10,
       this.snap = true,
-      this.type = AnimationType.animateIn})
+      this.type = AnimationType.start})
       : assert(rotationAngle >= 0.0);
 
   @override

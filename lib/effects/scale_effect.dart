@@ -18,7 +18,7 @@ class ScaleEffect extends ScrollEffect {
       this.horizontalScale = 0.2,
       this.snap = true,
       this.alignment = Alignment.center,
-      this.type = AnimationType.animateInAndOut})
+      this.type = AnimationType.always})
       : assert(verticalScale >= 0.0),
         assert(horizontalScale >= 0.0);
 

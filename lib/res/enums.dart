@@ -5,8 +5,12 @@ enum AnimationType {
   animateIn,
   /// Animates on exit
   animateOut,
+  /// Animates at the start of the scroll axis
+  start,
+  /// Animates at the end of the scroll axis
+  end,
   /// Animates both on entrance and on exit
-  animateInAndOut
+  always
 }
 
 enum AnimationScrollDirection {
