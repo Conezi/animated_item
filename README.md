@@ -68,6 +68,6 @@ PageView.builder(
           borderRadius: _borderRadius),
       )
     );
-  }, // Can be null
+  },
 )
 ```  
