@@ -1,3 +1,4 @@
+// Copyright 2023 Conezi. All rights reserved.
 import 'package:flutter/material.dart';
 
 class Label extends StatelessWidget {

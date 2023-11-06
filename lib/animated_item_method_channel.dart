@@ -1,3 +1,4 @@
+// Copyright 2023 Conezi. All rights reserved.
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 

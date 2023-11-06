@@ -1,3 +1,4 @@
+// Copyright 2023 Conezi. All rights reserved.
 import 'package:animated_item/animated_item.dart';
 import 'package:flutter/material.dart';
 
