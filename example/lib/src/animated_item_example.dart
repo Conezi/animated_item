@@ -69,7 +69,9 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                       controller: _verticalTranslateController,
                       index: index,
                       effect: const TranslateEffect(
-                          animationAxis: Axis.vertical, start: 5),
+                          startOffset: 5,
+                          animationAxis: Axis.vertical,
+                          type: AnimationType.start),
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,
@@ -91,7 +93,7 @@ class _AnimatedItemExampleState extends State<AnimatedItemExample> {
                       controller: _horizontalTranslateController,
                       index: index,
                       effect: const TranslateEffect(
-                          animationAxis: Axis.horizontal, start: 5),
+                          animationAxis: Axis.horizontal, startOffset: 5),
                       child: Container(
                         margin: const EdgeInsets.all(5.0),
                         width: width,

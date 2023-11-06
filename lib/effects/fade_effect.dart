@@ -15,7 +15,9 @@ class FadeEffect extends ScrollEffect {
   final bool snap;
   final AnimationType type;
   const FadeEffect(
-      {this.opacity = 0.5, this.snap = true, this.type = AnimationType.always})
+      {this.opacity = 0.8,
+      this.snap = true,
+      this.type = AnimationType.animateOut})
       : assert(opacity >= 0.0);
 
   @override

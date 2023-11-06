@@ -8,7 +8,8 @@ abstract class ScrollEffect {
   const ScrollEffect();
 
   bool isStatic(
-      double delta, AnimationType type, AnimationScrollDirection direction, [bool snap = true, bool? isScrolling]) {
+      double delta, AnimationType type, AnimationScrollDirection direction,
+      [bool snap = true, bool? isScrolling]) {
     final shouldSnap = snap && isScrolling == false;
 
     final isForward = direction == AnimationScrollDirection.forward;

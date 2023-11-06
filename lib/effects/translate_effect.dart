@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import '../res/enums.dart';
 
 class TranslateEffect extends ScrollEffect {
-  final int start;
+  /// The animation start offset
+  /// Use negative numbers to reverse translate
+  final int startOffset;
 
   /// Snap back to original position when not scrolling
   /// Only effective on the [AnimatedItem]
@@ -16,7 +18,7 @@ class TranslateEffect extends ScrollEffect {
   final Axis animationAxis;
   final AnimationType type;
   const TranslateEffect(
-      {this.start = 10,
+      {this.startOffset = 10,
       this.snap = true,
       this.animationAxis = Axis.horizontal,
       this.type = AnimationType.always});
@@ -37,15 +39,17 @@ class TranslateEffect extends ScrollEffect {
           return child;
         }
         delta = delta.abs();
-        double start = animationAxis == Axis.horizontal
-            ? ((itemWidth ?? constraints.maxWidth) * 0.105) * delta * this.start
+        double startOffset = animationAxis == Axis.horizontal
+            ? ((itemWidth ?? constraints.maxWidth) * 0.105) *
+                delta *
+                this.startOffset
             : ((itemHeight ?? constraints.maxHeight) * 0.105) *
                 delta *
-                this.start;
+                this.startOffset;
         return Transform.translate(
             offset: (animationAxis == Axis.horizontal
-                ? Offset(start, 0)
-                : Offset(0, -start)),
+                ? Offset(startOffset, 0)
+                : Offset(0, -startOffset)),
             child: child);
       },
     );
