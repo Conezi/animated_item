@@ -40,6 +40,12 @@ class _AnimatedItemState extends State<AnimatedItem> {
     widget.controller.addListener(_listener);
   }
 
+  @override
+  void dispose() {
+    widget.controller.removeListener(_listener);
+    super.dispose();
+  }
+
   void _getItemSize() {
     if (_itemKey.currentContext != null) {
       RenderBox renderBox =
@@ -49,7 +55,7 @@ class _AnimatedItemState extends State<AnimatedItem> {
     }
   }
 
-  _listener() {
+  void _listener() {
     if (mounted) {
       final itemExtent = widget.controller.position.axis == Axis.horizontal
           ? _itemWidth
@@ -70,7 +76,8 @@ class _AnimatedItemState extends State<AnimatedItem> {
           index: widget.index,
           position: _itemPosition,
           itemWidth: _itemWidth,
-          itemHeight: _itemHeight),
+          itemHeight: _itemHeight,
+          isScrolling: widget.controller.position.isScrollingNotifier.value),
     );
   }
 }

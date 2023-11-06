@@ -2,10 +2,18 @@ import 'package:animated_item/effects/base_scroll_effect.dart';
 import 'package:flutter/material.dart';
 
 class TranslateEffect extends ScrollEffect {
-  final Axis animationAxis;
   final int start;
+
+  /// Snap back to original position when not scrolling
+  /// Only effective on the [AnimatedItem]
+  final bool snap;
+
+  /// Animation axis
+  final Axis animationAxis;
   const TranslateEffect(
-      {this.start = 10, this.animationAxis = Axis.horizontal});
+      {this.start = 10,
+      this.snap = false,
+      this.animationAxis = Axis.horizontal});
 
   @override
   Widget buildEffect(
@@ -13,7 +21,8 @@ class TranslateEffect extends ScrollEffect {
       required int index,
       required double position,
       double? itemWidth,
-      double? itemHeight}) {
+      double? itemHeight,
+      bool? isScrolling}) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         //final size  = MediaQuery.of(context).size;
@@ -23,6 +32,9 @@ class TranslateEffect extends ScrollEffect {
             : ((itemHeight ?? constraints.maxHeight) * 0.105) *
                 delta *
                 this.start;
+        if (snap && isScrolling == false) {
+          return child;
+        }
         return Transform.translate(
             offset: (animationAxis == Axis.horizontal
                 ? Offset(start, 0)

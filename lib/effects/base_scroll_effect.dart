@@ -8,5 +8,6 @@ abstract class ScrollEffect {
       required int index,
       required double position,
       double? itemWidth,
-      double? itemHeight});
+      double? itemHeight,
+      bool? isScrolling});
 }
