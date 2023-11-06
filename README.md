@@ -28,22 +28,24 @@ animated_item: ^<latest-version>
 
 ```dart
 ListView.builder(
-itemCount: colors.length,
-scrollDirection: Axis.horizontal,
-controller: _scaleController,
-padding: const EdgeInsets.symmetric(horizontal: 10.0),
-itemBuilder: (context, index) {
-return AnimatedItem(
-controller: _scaleController,
-index: index,
-effect: const ScaleEffect(),
-child: Container(
-margin: const EdgeInsets.all(5.0),
-width: width,
-decoration: BoxDecoration(
-color: colors[index], borderRadius: _borderRadius),
-));
-},
+  itemCount: colors.length,
+  scrollDirection: Axis.horizontal,
+  controller: _scaleController,
+  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+  itemBuilder: (context, index) {
+    return AnimatedItem(
+      controller: _scaleController,
+      index: index,
+      effect: const ScaleEffect(),
+      child: Container(
+        margin: const EdgeInsets.all(5.0),
+        width: width,
+        decoration: BoxDecoration(
+          color: colors[index],
+          borderRadius: _borderRadius),
+      )
+    );
+  },
 )
 ``` 
 
@@ -51,19 +53,21 @@ color: colors[index], borderRadius: _borderRadius),
 
 ```dart
 PageView.builder(
-controller: _scaleController,
-itemCount: colors.length,
-itemBuilder: (context, index) {
-return AnimatedPage(
-controller: _scaleController,
-index: index,
-effect: const ScaleEffect(),
-child: Container(
-margin: const EdgeInsets.all(5.0),
-width: width,
-decoration: BoxDecoration(
-color: colors[index], borderRadius: _borderRadius),
-));
-}, // Can be null
+  controller: _scaleController,
+  itemCount: colors.length,
+  itemBuilder: (context, index) {
+    return AnimatedPage(
+      controller: _scaleController,
+      index: index,
+      effect: const ScaleEffect(),
+      child: Container(
+        margin: const EdgeInsets.all(5.0),
+        width: width,
+        decoration: BoxDecoration(
+          color: colors[index], 
+          borderRadius: _borderRadius),
+      )
+    );
+  }, // Can be null
 )
 ```  
