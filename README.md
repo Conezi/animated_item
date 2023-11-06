@@ -1,6 +1,6 @@
 # animated_item
 
-#### A Flutter plugin that animates ListView and PageView item on scroll.
+#### A Flutter plugin that animates ListView and PageView items on scroll.
 
 ### Previews
 ---  
