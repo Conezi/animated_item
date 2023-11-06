@@ -1,15 +1,19 @@
 # animated_item
 
-A Flutter plugin that animates ListView and PageView item on scroll.
+#### A Flutter plugin that animates ListView and PageView item on scroll.
 
-## Getting Started
+### Preview
+---  
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+![](https://github.com/Conezi/animated_item/blob/main/demo/animated_item_preview.gif?raw=true)
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![](https://github.com/Conezi/animated_item/blob/main/demo/animated_page_preview.gif?raw=true)
 
+### Installation
+---  
+
+First, add `animated_item` as a dependency in your pubspec.yaml file.
+
+```yaml
+animated_item: ^<latest-version>
+```
