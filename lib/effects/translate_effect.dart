@@ -25,7 +25,6 @@ class TranslateEffect extends ScrollEffect {
       bool? isScrolling}) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        //final size  = MediaQuery.of(context).size;
         double delta = (index - position).abs();
         double start = animationAxis == Axis.horizontal
             ? ((itemWidth ?? constraints.maxWidth) * 0.105) * delta * this.start
