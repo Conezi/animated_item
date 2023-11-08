@@ -39,10 +39,14 @@ class _AnimatedPageState extends State<AnimatedPage> {
   void initState() {
     super.initState();
     if (widget.controller.position.haveDimensions) {
-      widget.controller.addListener(() {
-        _listener();
-      });
+      widget.controller.addListener(_listener);
     }
+  }
+
+  @override
+  void dispose() {
+    widget.controller.removeListener(_listener);
+    super.dispose();
   }
 
   _listener() {
