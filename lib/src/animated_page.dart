@@ -74,6 +74,7 @@ class _AnimatedPageState extends State<AnimatedPage> {
             child: widget.child,
             index: widget.index,
             position: _pagePosition,
+            isScrolling: widget.controller.position.isScrollingNotifier.value,
             direction: _scrollDirection));
   }
 }
