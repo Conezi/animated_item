@@ -1,6 +1,6 @@
 name: animated_item
 description: A Flutter plugin that animates ListView and PageView items on scroll, offering diverse effects like scaling, fading, translating, and rotating for dynamic user interactions.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/Conezi/animated_item
 
 environment:
